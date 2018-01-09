@@ -36,7 +36,6 @@ int main(void){
 
 	
 	
-	printf("a=%d\n",a);
 	
 	cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
 	cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
@@ -45,9 +44,11 @@ int main(void){
 	add<<<N,1>>>(d_a, d_b, d_c);
 
 	cudaMemcpy(c,d_c,size,cudaMemcpyDeviceToHost);
-	printf("sum=%d\n",c);
+	for(int i=0;i<N;i++){
+	
+	printf("sum=%d",c[i]);}
 
-	free(a); free(b); free(c);
+	
 	cudaFree(d_a); cudaFree(d_b); cudaFree(d_c);
 	return 0;
 }

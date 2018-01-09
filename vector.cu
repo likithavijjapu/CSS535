@@ -11,7 +11,12 @@ __global__ void add( int *a , int *b , int *c)
 	printf("time=%d\n", (stop_time - start_time) );
 }
 
-# define N 512
+# define N 5
+
+void random_ints(int* a, int h)
+{
+
+}
 
 int main(void){
 	int *a,*b,*c;

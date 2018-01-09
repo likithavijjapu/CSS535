@@ -45,7 +45,7 @@ int main(void){
 	printf("time=%d\n", (stop_time - start_time) );
 
 	cudaMemcpy(c,d_c,size,cudaMemcpyDeviceToHost);
-	printf("c=")
+	printf("c=");
 	for(int i=0;i<N;i++){
 	
 	printf("%d+",c[i]);}

@@ -3,7 +3,7 @@
 __global__ void add( int *a , int *b , int *c)
 {
 	clock_t start_time = clock(); 
-	c[blockIdx.x] = a[blockIdx.x] +b [blockIdx.x];
+	c[blockIdx.x] = a[blockIdx.x] +b[blockIdx.x];
 	/*cudaThreadSynchronize(); */
 	clock_t stop_time = clock();
 	printf("time=%d\n", (stop_time - start_time) );

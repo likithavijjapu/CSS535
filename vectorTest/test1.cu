@@ -19,20 +19,22 @@ void random_ints(int* a, int h)
 }
 
 int main(void){
-	int a[],b[],c[];
+	int a[N],b[N],c[N];
 	int *d_a,*d_b,*d_c;
 
 	int size = N * sizeof(int);
+	
+	cudaMalloc((void **)&d_a, size);
+	cudaMalloc((void **)&d_b, size);
+	cudaMalloc((void **)&d_c, size);
 	for ( int i=0;i<=N;i++)
-  {
-    a[i]=i+2;
-    b[i]=i+3;
-    c[i]=0;
-  }
+  		{
+    		a[i]=i+2;
+    		b[i]=i+3;
+   		c[i]=0;
+  		}
 
-	a = (int *)malloc(size); random_ints(a, N);
-	b = (int *)malloc(size); random_ints(b, N);
-	c = (int *)malloc(size);
+	
 	
 	printf("a=%d\n",a);
 	

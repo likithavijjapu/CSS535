@@ -12,8 +12,8 @@ __global__ void add( int *a , int *b , int *c)
 # define N 512
 
 int main(void){
-	int *a , *b , *c;
-	int *d_a , *d_b , *d_c;
+	int *a,*b,*c;
+	int *d_a,*d_b,*d_c;
 
 	int size = N * sizeof(int);
 	cudaMalloc((void **)&d_a, size);
@@ -30,7 +30,7 @@ int main(void){
 
 	add<<<N,1>>>(d_a, d_b, d_c);
 
-	cudaMemcpy(c, d_c, size, cudaMemcpyDeviceToHost);
+	cudaMemcpy(c,d_c,size,cudaMemcpyDeviceToHost);
 
 	free(a); free(b); free(c);
 	cudaFree(d_a); cudaFree(d_b); cudaFree(d_c);

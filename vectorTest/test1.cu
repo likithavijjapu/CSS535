@@ -4,11 +4,9 @@
 
 __global__ void add( int *a , int *b , int *c)
 {
-	clock_t start_time = clock(); 
+	
 	c[blockIdx.x] = a[blockIdx.x] +b[blockIdx.x];
-	cudaThreadSynchronize(); 
-	clock_t stop_time = clock();
-	printf("time=%d\n", (stop_time - start_time) );
+	
 }
 
 # define N 5
@@ -40,8 +38,11 @@ int main(void){
 	cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
 	cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
 	cudaMemcpy(d_c, c, size, cudaMemcpyHostToDevice);
-
+	clock_t start_time = clock(); 
 	add<<<N,1>>>(d_a, d_b, d_c);
+	cudaThreadSynchronize(); 
+	clock_t stop_time = clock();
+	printf("time=%d\n", (stop_time - start_time) );
 
 	cudaMemcpy(c,d_c,size,cudaMemcpyDeviceToHost);
 	for(int i=0;i<N;i++){

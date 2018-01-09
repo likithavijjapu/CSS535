@@ -30,7 +30,9 @@ int main(void){
 	a = (int *)malloc(size); random_ints(a, N);
 	b = (int *)malloc(size); random_ints(b, N);
 	c = (int *)malloc(size);
-
+	
+	printf("a=%d\n",*a);
+	
 	cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
 	cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
 	cudaMemcpy(d_c, c, size, cudaMemcpyHostToDevice);

@@ -47,7 +47,7 @@ int main(void){
 	cudaThreadSynchronize(); 
 	//end clocking and measuring time for execution
 	clock_t stop_time = clock();
-	int time = ((double) (stop_time - start_time)) / CLOCKS_PER_SEC;;
+	int time = (stop_time - start_time) / CLOCKS_PER_SEC;;
 	printf("time=%d\n", time);
 	//Copy result back to host
 	cudaMemcpy(c,d_c,size,cudaMemcpyDeviceToHost);

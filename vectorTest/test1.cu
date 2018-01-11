@@ -42,7 +42,7 @@ int main(void){
 	cudaMemcpy(d_c, c, size, cudaMemcpyHostToDevice);
 	// start clocking
 	clock_t start_time = clock(); 
-	printd("strt time=%d\n=",start_time);
+	printf("strt time=%d\n=",start_time);
 	//Launch add() kernel on GPU
 	add<<<N,1>>>(d_a, d_b, d_c);
 	cudaThreadSynchronize(); 

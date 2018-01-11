@@ -42,7 +42,8 @@ int main(void){
 	add<<<N,1>>>(d_a, d_b, d_c);
 	cudaThreadSynchronize(); 
 	clock_t stop_time = clock();
-	printf("time=%d\n", (stop_time - start_time) );
+	int time =stop_time - start_time;
+	printf("time=%d\n", time);
 
 	cudaMemcpy(c,d_c,size,cudaMemcpyDeviceToHost);
 	printf("c=");

@@ -19,7 +19,7 @@ void random_ints(int* a, int h)
 
 int main(void){
 	int N;
-	printf("enter size of vector\n");
+	printf("\"Hello Vector !\"\n enter size of vector\n");
 	scanf("%d",&N);
 	int a[N],b[N],c[N];
 	int *d_a,*d_b,*d_c;

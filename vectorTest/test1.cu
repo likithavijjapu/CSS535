@@ -9,7 +9,7 @@ __global__ void add( int *a , int *b , int *c)
 	
 }
 
-# define N 125
+//# define N 125
 
 void random_ints(int* a, int h)
 {
@@ -17,6 +17,9 @@ void random_ints(int* a, int h)
 }
 
 int main(void){
+	int N;
+	printf("enter size of vector\n");
+	scanf("%d",&N);
 	int a[N],b[N],c[N];
 	int *d_a,*d_b,*d_c;
 

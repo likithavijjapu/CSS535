@@ -9,7 +9,7 @@ __global__ void add( int *a , int *b , int *c)
 	
 }
 
-# define N 5
+# define N 125
 
 void random_ints(int* a, int h)
 {
@@ -42,10 +42,11 @@ int main(void){
 	add<<<N,1>>>(d_a, d_b, d_c);
 	cudaThreadSynchronize(); 
 	clock_t stop_time = clock();
-	printf("time=%d\n", (stop_time - start_time) );
+	int time =stop_time - start_time;
+	printf("time=%d\n", time);
 
 	cudaMemcpy(c,d_c,size,cudaMemcpyDeviceToHost);
-	printf("c=")
+	printf("c=");
 	for(int i=0;i<N;i++){
 	
 	printf("%d+",c[i]);}
